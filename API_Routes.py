@@ -12,4 +12,10 @@ def home():
 @app.route('/login', methods=['GET'])
 def login():
     return "Welcome to API login"
+
+@app.route('/api/v1/users/', methods=['GET', 'POST'])
+def user():
+    return "Welcome to API users-versions"
+
 app.run(debug=True)
+## Source : https://hackersandslackers.com/flask-routes/
