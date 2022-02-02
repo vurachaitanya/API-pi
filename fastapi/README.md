@@ -14,7 +14,7 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 ```
-`uvicorn <Filename>:app --reload` - Reload the webpage
+- `uvicorn <Filename>:app --reload` - Reload the webpage
 
 ### PATH Based
 ```
@@ -28,8 +28,8 @@ async def read_item(item_id: int):
     return {"item_id": item_id}
 
 ```
-`uvicorn <Filename>:app --reload` - Reload the webpage
-`curl http://127.0.0.1:8000/items/123` - test
+- `uvicorn <Filename>:app --reload` - Reload the webpage
+- `curl http://127.0.0.1:8000/items/123` - test
 
 
 ### Base on URL 
@@ -58,5 +58,5 @@ async def get_model(model_name: ModelName):
 
     return {"model_name": model_name, "message": "Have some residuals"}
 ```
-`uvicorn <Filename>:app --reload` - Reload the webpage
-`curl http://127.0.0.1:8000/models/resnet` - test
+- `uvicorn <Filename>:app --reload` - Reload the webpage
+- `curl http://127.0.0.1:8000/models/resnet` - test
