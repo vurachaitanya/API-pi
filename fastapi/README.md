@@ -60,3 +60,34 @@ async def get_model(model_name: ModelName):
 ```
 - `uvicorn <Filename>:app --reload` - Reload the webpage
 - `curl http://127.0.0.1:8000/models/resnet` - test
+
+### Switch ON & OFF:
+
+```
+from enum import Enum
+
+from fastapi import FastAPI
+
+
+class ModelName(str, Enum):
+    ON = "ON"
+    OFF = "OFF"
+    status = "status"
+
+
+app = FastAPI()
+
+
+@app.get("/models/{model_name}")
+async def get_model(model_name: ModelName):
+    if model_name == ModelName.ON:
+        return {"model_name": model_name, "message": "Switch is on"}
+
+    if model_name.value == "OFF":
+        return {"model_name": model_name, "message": "Switch is off"}
+
+    return {"model_name": model_name, "message": "status of the switch"}
+
+```
+- `uvicorn <Filename>:app --reload` - Reload the webpage
+- `curl http://127.0.0.1:8000/models/ON` - test
