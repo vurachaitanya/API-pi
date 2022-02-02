@@ -1,5 +1,5 @@
 ### FAST API 
-
+- [Fast api to nginx redirection with SSL](https://lcalcagni.medium.com/deploy-your-fastapi-to-aws-ec2-using-nginx-aa8aa0d85ec7)
 - [FAST API Source](https://fastapi.tiangolo.com/tutorial/)
 - `pip install fastapi` - install Fast api
 - `pip install "uvicorn[standard]"` - Install Webapp to support fastapi
