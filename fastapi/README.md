@@ -30,3 +30,33 @@ async def read_item(item_id: int):
 ```
 `uvicorn <Filename>:app --reload` - Reload the webpage
 `curl http://127.0.0.1:8000/items/123` - test
+
+
+### Base on URL 
+```
+from enum import Enum
+
+from fastapi import FastAPI
+
+
+class ModelName(str, Enum):
+    alexnet = "alexnet"
+    resnet = "resnet"
+    lenet = "lenet"
+
+
+app = FastAPI()
+
+
+@app.get("/models/{model_name}")
+async def get_model(model_name: ModelName):
+    if model_name == ModelName.alexnet:
+        return {"model_name": model_name, "message": "Deep Learning FTW!"}
+
+    if model_name.value == "lenet":
+        return {"model_name": model_name, "message": "LeCNN all the images"}
+
+    return {"model_name": model_name, "message": "Have some residuals"}
+```
+`uvicorn <Filename>:app --reload` - Reload the webpage
+`curl http://127.0.0.1:8000/models/resnet` - test
