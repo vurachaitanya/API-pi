@@ -14,4 +14,4 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 ```
-uvicorn <Filename>:app --reload
+`uvicorn <Filename>:app --reload` - Reload the webpage
